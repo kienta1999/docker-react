@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY 'package.json' ./
+RUN npm install
+RUN npm config set unsafe-perm true
+
+COPY . . 
+# can be removed
+
+CMD ["npm", "run", "start"]
